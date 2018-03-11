@@ -1,7 +1,12 @@
-webapp:
+webapp1:
   image: parvath/webapp-monitoring:v1.0
   ports:
     - "8888:8080"
+
+webapp2:
+  image: parvath/webapp-monitoring:v1.0
+  ports:
+    - "8887:8080"
 
 cadvisor:
   image: google/cadvisor:latest
@@ -13,3 +18,10 @@ cadvisor:
     - "/sys:/sys:ro"
     - "/var/lib/docker/:/var/lib/docker:ro"
     - "/dev/disk/:/dev/disk:ro"
+
+prometheus:
+  image: prom/prometheus
+  ports:
+    -8886:9090
+  volumes:
+    - "/apps/volumes/prometheus.yml:/etc/prometheus/prometheus.yml"
