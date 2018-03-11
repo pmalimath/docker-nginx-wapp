@@ -22,6 +22,6 @@ cadvisor:
 prometheus:
   image: prom/prometheus
   ports:
-    -8886:9090
+    - "8886:9090"
   volumes:
     - "/apps/volumes/prometheus.yml:/etc/prometheus/prometheus.yml"
